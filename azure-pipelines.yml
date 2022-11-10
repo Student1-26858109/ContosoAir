@@ -1,8 +1,13 @@
    pool:
      vmImage: 'ubuntu-18.04'
+
    trigger:
      - master
    steps:
+   - task: NodeTool@0
+     inputs:
+       versionSource: 'spec'
+       versionSpec: '6.x'
      - task: CopyFiles@2
        displayName: 'Copy Files to: $(build.artifactstagingdirectory)/Templates'
        inputs:
